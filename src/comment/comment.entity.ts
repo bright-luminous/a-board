@@ -1,24 +1,20 @@
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany, CreateDateColumn } from 'typeorm';
+import { Post } from 'src/post/post.entity';
+import { User } from 'src/user/user.entity';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany, CreateDateColumn, ManyToOne } from 'typeorm';
 
 @Entity()
-export class Contact {
+export class Comment {
   @PrimaryGeneratedColumn("uuid")
   id: string;
 
   @Column()
-  tel: string;
+  content: string;
 
-  @Column()
-  name: string;
+  @ManyToOne(() => User, (user) => user.comments)
+  owner: User;
 
-  @Column()
-  lineID: string;
-
-  @OneToMany(() => Note, (note) => note.service)
-  note: Note[]
-
-  @OneToMany(() => Company, (company) => company.contacts)
-  company: Company[]
+  @ManyToOne(() => Post, (post) => post.comments)
+  parentPost: Post;
 
   @CreateDateColumn()
   createAt: Date;

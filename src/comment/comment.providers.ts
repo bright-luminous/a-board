@@ -1,10 +1,10 @@
 import { DataSource } from 'typeorm';
-import { Contact } from './comment.entity';
+import { Comment } from './comment.entity';
 
 export const contactProviders = [
   {
     provide: 'COMMENT_REPOSITORY',
-    useFactory: (dataSource: DataSource) => dataSource.getRepository(Contact),
+    useFactory: (dataSource: DataSource) => dataSource.getRepository(Comment),
     inject: ['DATA_SOURCE'],
   },
 ];

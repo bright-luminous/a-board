@@ -9,8 +9,8 @@ export const databaseProviders = [
         host: 'localhost',
         port: 3306,
         username: 'root',
-        password: 'root',
-        database: 'aBoard',
+        password: 'eauu0244',
+        database: 'aBoardLocalDB',
         entities: [__dirname + '/../**/*.entity{.ts,.js}',],
         synchronize: true,
       });
