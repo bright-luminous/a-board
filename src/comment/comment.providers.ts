@@ -1,7 +1,7 @@
 import { DataSource } from 'typeorm';
 import { Comment } from './comment.entity';
 
-export const contactProviders = [
+export const commentProviders = [
   {
     provide: 'COMMENT_REPOSITORY',
     useFactory: (dataSource: DataSource) => dataSource.getRepository(Comment),

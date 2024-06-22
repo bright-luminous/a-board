@@ -1,7 +1,7 @@
 import { DataSource } from 'typeorm';
 import { Community } from './community.entity';
 
-export const contactProviders = [
+export const communityProviders = [
   {
     provide: 'COMMUNITY_REPOSITORY',
     useFactory: (dataSource: DataSource) => dataSource.getRepository(Community),

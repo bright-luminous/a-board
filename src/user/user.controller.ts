@@ -7,17 +7,22 @@ export class UserController {
   constructor(private userService: UserService) {}
 
   @Get()
-  getJobs() {
+  getUsers() {
     return this.userService.getUsers();
   }
 
+  @Get()
+  getUserByID(@Query('id') id: string) {
+    return this.userService.getUserByID(id);
+  }
+
   @Post()
-  async createNote(@Body() createUserParams: CreateUserParams){
+  async createUser(@Body() createUserParams: CreateUserParams){
     return this.userService.createUser(createUserParams);
   }
 
   @Delete()
-  async deleteNote(@Query('id') id: string){
+  async deleteUser(@Query('id') id: string){
     return this.userService.deleteUser(id);
   }
 }
