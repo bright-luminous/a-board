@@ -11,7 +11,7 @@ export class Post {
   @Column()
   title: string;
 
-  @Column()
+  @Column({type: 'longtext'})
   content: string;
 
   @OneToMany(() => Comment, (comment) => comment.parentPost)

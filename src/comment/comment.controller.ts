@@ -11,9 +11,14 @@ export class CommentController {
     return this.commentService.getComments();
   }
 
-  @Get()
+  @Get('id')
   getCommentByID(@Query('id') id: string) {
     return this.commentService.getCommentByID(id);
+  }
+
+  @Get('post')
+  getCommentByPost(@Query('id') id: string) {
+    return this.commentService.getCommentByPost(id);
   }
 
   @Post()

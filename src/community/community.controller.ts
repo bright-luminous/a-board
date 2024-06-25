@@ -11,7 +11,7 @@ export class CommunityController {
     return this.communityService.getCommunities();
   }
 
-  @Get()
+  @Get('id')
   getCommunityByID(@Query('id') id: string) {
     return this.communityService.getCommunityByID(id);
   }

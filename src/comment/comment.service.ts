@@ -25,6 +25,16 @@ export class CommentService {
     return await this.commentRepository.findOne({ where: { id: id } });
   }
 
+  async getCommentByPost(id: string): Promise<Comment[]> {
+    const res = await this.commentRepository
+      .createQueryBuilder('comment')
+      .leftJoinAndSelect('comment.owner', 'user')
+      .leftJoinAndSelect('comment.parentPost', 'post')
+      .where('post.id = :id', { id: id })
+      .getMany();
+    return res;
+  }
+
   async createComment(createCommentParams: CreateCommentParams): Promise<Comment> {
     var newComment = new Comment();
     newComment.content = createCommentParams.content;
